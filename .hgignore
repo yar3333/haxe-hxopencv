@@ -1,0 +1,9 @@
+syntax: glob
+*.pdb
+*.lib
+*.exp
+library/src/neko/Debug/
+*.sdf
+*.suo
+*.ipch
+*.user
