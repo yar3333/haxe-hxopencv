@@ -4,19 +4,19 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin" />
+    <movie path="tests\neko\main.n" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
     <movie version="1" />
     <movie minorVersion="0" />
-    <movie platform="PHP" />
+    <movie platform="Neko" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
     <class path="library" />
-    <class path="tests" />
+    <class path="tests\neko" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -47,8 +47,8 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="OpenDocument" />
-    <option testMovieCommand="" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="cmd /K tests\neko\run.cmd" />
   </options>
   <!-- Plugin storage -->
   <storage />
