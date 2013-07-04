@@ -7,3 +7,5 @@ library/src/neko/Debug/
 *.suo
 *.ipch
 *.user
+*.obj
+tests/neko/bin

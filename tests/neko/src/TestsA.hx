@@ -6,7 +6,7 @@ class TestsA extends haxe.unit.TestCase
 {
     public function testBasic()
     {
-		OpenCV.init();
+		OpenCV.cvTest();
 		this.assertTrue(true);
     }
 }

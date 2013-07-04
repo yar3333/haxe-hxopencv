@@ -4,10 +4,10 @@ import neko.Lib;
 
 class OpenCV
 {
-	public static function init() : Void
+	public static function cvTest() : Void
 	{
-		hxcurl_init();
+		neko_cvTest();
 	}
 	
-	private static var hxcurl_init = Lib.load("hxOpenCV","hxcurl_init", 0);
+	private static var neko_cvTest = Lib.load("hxOpenCV","neko_cvTest", 0);
 }
