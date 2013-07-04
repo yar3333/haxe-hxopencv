@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="tests\neko\main.n" />
+    <movie path="bin\main.n" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
@@ -15,8 +15,8 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="library" />
-    <class path="tests\neko" />
+    <class path="..\..\library" />
+    <class path="src" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -32,13 +32,11 @@
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="src\Start.hx" />
+    <compile path="Main.hx" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
-    <hidden path="bin" />
-    <hidden path="library.zip" />
-    <hidden path="ipch" />
+    <!-- example: <hidden path="..." /> -->
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
@@ -48,7 +46,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="cmd /K tests\neko\run.cmd" />
+    <option testMovieCommand="cmd /K tools\run.cmd" />
   </options>
   <!-- Plugin storage -->
   <storage />
