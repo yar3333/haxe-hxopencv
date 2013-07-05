@@ -1,12 +1,12 @@
 package;
 
-import opencv.OpenCV;
+import opencv2.Test;
 
 class TestsA extends haxe.unit.TestCase
 {
     public function testBasic()
     {
-		OpenCV.cvTest();
+		Test.test();
 		this.assertTrue(true);
     }
 }

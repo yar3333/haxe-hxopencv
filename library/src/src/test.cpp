@@ -2,36 +2,11 @@
 #include <opencv/highgui.h>
 #include <stdlib.h>
 #include <stdio.h>
-
 #include <neko.h>
 
-#define STRINGIFY(x) #x
-#define val_match_or_fail(v, t) if(!val_is_##t(v)) { failure("Excepted "#t" in `"__FILE__"' at line "STRINGIFY(__LINE__)"."); }
+////////////////////////////////////////////////////////////////////
 
-DEFINE_KIND(k_IplImage);
-
-void neko_cvReleaseImage(value image);
-
-value neko_cvLoadImage(value fileName, value p)
-{
-	val_check(fileName, string);
-	val_check(p, int);
-
-	IplImage *image = cvLoadImage(val_string(fileName), val_int(p));
-	value r = alloc_abstract(k_IplImage, image);
-	val_gc(r, neko_cvReleaseImage);
-	return r;
-}
-DEFINE_PRIM(neko_cvLoadImage, 2);
-
-void neko_cvReleaseImage(value image)
-{
-	IplImage *temp = (IplImage *)val_data(image);
-	cvReleaseImage(&(temp));
-}
-DEFINE_PRIM(neko_cvReleaseImage, 1);
-
-void neko_cvTest()
+void neko_test()
 {
 	// задаём высоту и ширину картинки
 	int height = 620;
@@ -56,7 +31,10 @@ void neko_cvTest()
 	cvWaitKey(0);
 	
 	// освобождаем ресурсы
-	cvReleaseImage(&hw);
-	cvDestroyWindow("Hello World");
+	//cvReleaseImage(&hw);
+	//cvDestroyWindow("Hello World");
 }
-DEFINE_PRIM(neko_cvTest, 0);
+DEFINE_PRIM(neko_test, 0);
+
+//---------------------------------------------------
+
