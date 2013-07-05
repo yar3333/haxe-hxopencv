@@ -1,3 +1,5 @@
+@echo off
+
 SET SRC_DIR=src
 SET OBJ_DIR=obj
 SET OUT=..\ndll\Windows\hxOpenCV.ndll
