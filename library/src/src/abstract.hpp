@@ -20,12 +20,13 @@ using namespace cv;
 
 ////////////////////////////////////////////////////////////////////
 
-extern void deleteObject(value obj);
+void deleteMat(value obj);
+void deleteIplImage(value obj);
 
 ////////////////////////////////////////////////////////////////////
 
-extern value iplImageToValue(IplImage *image);
-extern IplImage *valueToIplImage(value image);
-extern value matToValue(Mat mat);
-extern Mat &valueToMat(value mat);
-extern value pointToValue(Point p);
+value iplImageToValue(IplImage *image);
+IplImage *valueToIplImage(value image);
+value matToValue(Mat mat);
+Mat &valueToMat(value mat);
+value pointToValue(Point p);

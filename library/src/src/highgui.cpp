@@ -1,7 +1,5 @@
 #include "abstract.hpp"
 
-#include <stdio.h>
-
 ////////////////////////////////////////////////////////////////////
 
 value neko_imread(value fileName, value loadImageColor)
