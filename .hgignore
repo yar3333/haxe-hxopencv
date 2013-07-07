@@ -3,3 +3,6 @@ syntax: glob
 *.exp
 *.obj
 test/bin
+*.o
+library/src/hxOpenCV.depend
+library/src/hxOpenCV.layout
