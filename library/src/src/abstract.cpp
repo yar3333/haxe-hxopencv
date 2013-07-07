@@ -7,28 +7,32 @@ DEFINE_KIND(k_Mat);
 
 ////////////////////////////////////////////////////////////////////
 
-void deleteObject(value obj)
+void deleteMat(value obj)
 {
-	delete val_data(obj);
+    delete (Mat *)val_data(obj);
 }
 
-/*value iplImageToValue(IplImage *image)
+void deleteIplImage(value obj)
+{
+    delete (IplImage *)val_data(obj);
+}
+
+value iplImageToValue(IplImage *image)
 {
 	value r = alloc_abstract(k_IplImage, image);
-	val_gc(r, neko_cvReleaseImage);
+	val_gc(r, deleteIplImage);
 	return r;
 }
 
 IplImage *valueToIplImage(value image)
 {
-	//val_check_kind(image, k_IplImage);
 	return (IplImage *)val_data(image);
-}*/
+}
 
 value matToValue(Mat mat)
 {
 	value r = alloc_abstract(k_Mat, new Mat(mat));
-	val_gc(r, deleteObject);
+	val_gc(r, deleteMat);
 	return r;
 }
 
@@ -45,4 +49,3 @@ value pointToValue(Point p)
 	alloc_field(r, val_id("y"), alloc_int(p.y));
 	return r;
 }
-
