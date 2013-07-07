@@ -4,3 +4,10 @@
 
 DEFINE_KIND(k_IplImage);
 DEFINE_KIND(k_Mat);
+
+////////////////////////////////////////////////////////////////////
+
+void deleteObject(value obj)
+{
+	delete val_data(obj);
+}

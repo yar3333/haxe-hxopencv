@@ -12,8 +12,8 @@ class HighGui
 	
 	public static function imread(fileName:String, loadImageColor=1) : Mat
 	{
-		return new Mat(neko_imread(fileName, loadImageColor));
+		return new Mat(neko_imread(Lib.haxeToNeko(fileName), loadImageColor));
 	}
 	
-	private static var neko_imread = Lib.loadLazy("hxOpenCV", "neko_imread", 2);
+	private static var neko_imread = Lib.load("hxOpenCV", "neko_imread", 2);
 }
