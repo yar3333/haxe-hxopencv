@@ -7,7 +7,8 @@
 ////////////////////////////////////////////////////////////////////
 
 #define STRINGIFY(x) #x
-#define val_match_or_fail(v, t) if(!val_is_##t(v)) { failure("Excepted "#t" in `"__FILE__"' at line "STRINGIFY(__LINE__)"."); }
+#define val_check_type_or_fail(v, t) if (!val_is_##t(v)) { failure("Excepted "#t" in `"__FILE__"' at line "STRINGIFY(__LINE__)"."); }
+#define val_check_kind_or_fail(v, t) if (!val_is_abstract(v) || !val_is_kind(v, t)) { failure("Excepted "#t" in `"__FILE__"' at line "STRINGIFY(__LINE__)"."); }
 
 ////////////////////////////////////////////////////////////////////
 

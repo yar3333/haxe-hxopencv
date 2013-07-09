@@ -4,10 +4,10 @@
 
 value neko_minMaxLoc(value src, value mask)
 {
-	val_check_kind(src, k_Mat);
+	val_check_kind_or_fail(src, k_Mat);
 	if (!val_is_null(mask))
 	{
-		val_check_kind(mask, k_Mat);
+		val_check_kind_or_fail(mask, k_Mat);
 	}
 	
 	double minVal, maxVal;
