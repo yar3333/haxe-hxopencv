@@ -6,7 +6,7 @@
 
 ////////////////////////////////////////////////////////////////////
 
-void neko_test()
+value neko_test()
 {
 	// задаём высоту и ширину картинки
 	int height = 620;
@@ -33,6 +33,8 @@ void neko_test()
 	// освобождаем ресурсы
 	//cvReleaseImage(&hw);
 	//cvDestroyWindow("Hello World");
+	
+	return val_null;
 }
 DEFINE_PRIM(neko_test, 0);
 
