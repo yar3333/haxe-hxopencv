@@ -10,7 +10,7 @@ class TestsA extends haxe.unit.TestCase
 {
     public function testBasic()
     {
-		//Test.test();
+		Test.test();
 		this.assertTrue(true);
     }
     
@@ -19,7 +19,7 @@ class TestsA extends haxe.unit.TestCase
 		var captcha = HighGui.imread("captcha.jpg", HighGui.CV_LOAD_IMAGE_GRAYSCALE);
 		var letter = HighGui.imread("letter.jpg", HighGui.CV_LOAD_IMAGE_GRAYSCALE);
 		var match = Mat.create();
-		ImgProc.matchTemplate(captcha, letter, match, ImgProc.CV_TM_SQDIFF);
+		ImgProc.matchTemplate(captcha, letter, match, ImgProc.TM_SQDIFF);
 		var r = Core.minMaxLoc(match);
 		
 		trace("minVal = " + r.minVal);
