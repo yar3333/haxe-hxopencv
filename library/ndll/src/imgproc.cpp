@@ -58,3 +58,48 @@ value neko_adaptiveThreshold(value args[], int argc)
 	return val_null;
 }
 DEFINE_PRIM_MULT(neko_adaptiveThreshold);
+
+//---------------------------------------------------
+
+value neko_invert(value src, value dst)
+{
+	val_check_kind_or_fail(src, k_Mat);
+	val_check_kind_or_fail(dst, k_Mat);
+	
+	subtract(Scalar::all(255), valueToMat(src), valueToMat(dst));
+	
+	return val_null;
+}
+DEFINE_PRIM(neko_invert, 2);
+
+//---------------------------------------------------
+
+value neko_filter2D(value args[], int argc)
+{
+	if (argc != 8) failure("filter2D: expected 8 arguments.");
+	
+	value src = args[0];
+	value dst = args[1];
+	value ddepth = args[2];
+	value kernel = args[3];
+	value anchorX = args[4];
+	value anchorY = args[5];
+	value delta = args[6];
+	value borderType = args[7];
+	
+	val_check_kind_or_fail(src, k_Mat);
+	val_check_kind_or_fail(dst, k_Mat);
+	val_check_type_or_fail(ddepth, int);
+	val_check_kind_or_fail(kernel, k_Mat);
+	val_check_type_or_fail(anchorX, int);
+	val_check_type_or_fail(anchorY, int);
+	val_check_type_or_fail(delta, number);
+	val_check_type_or_fail(borderType, int);
+	
+	filter2D(valueToMat(src), valueToMat(dst), val_int(ddepth), valueToMat(kernel), Point(val_int(anchorX), val_int(anchorY)), val_number(delta), val_int(borderType));
+	
+	return val_null;
+}
+DEFINE_PRIM_MULT(neko_filter2D);
+
+//---------------------------------------------------

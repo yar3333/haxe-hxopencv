@@ -4,7 +4,7 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\main.n" />
+    <movie path="test\bin\main.n" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
@@ -15,8 +15,8 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="..\library" />
-    <class path="src" />
+    <class path="library" />
+    <class path="test\src" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -36,18 +36,17 @@
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>
-    <hidden path="..\library\src" />
-    <hidden path="..\library\ndll" />
+    <hidden path="library\ndll" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
   <!-- Executed after build -->
-  <postBuildCommand alwaysRun="False">xcopy /Y images\* bin</postBuildCommand>
+  <postBuildCommand alwaysRun="False">xcopy /y test\images\* test\bin</postBuildCommand>
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="cmd /K tools\run.cmd" />
+    <option testMovieCommand="cmd /K test\tools\run.cmd" />
   </options>
   <!-- Plugin storage -->
   <storage />
