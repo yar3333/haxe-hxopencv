@@ -1,8 +1,5 @@
 syntax: glob
-*.lib
-*.exp
 test/bin
-library/ndll/obj
-library/ndll/*.depend
-library/ndll/*.layout
 library.zip
+library/ndll/Windows/hxOpenCV.lib
+library/ndll/Windows/hxOpenCV.exp
