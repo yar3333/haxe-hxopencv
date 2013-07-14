@@ -49,3 +49,36 @@ value pointToValue(Point p)
 	alloc_field(r, val_id("y"), alloc_int(p.y));
 	return r;
 }
+
+int *newValueToArrayInt(value arr)
+{
+	int arrSize = val_array_size(arr);
+	value *arrPtr = val_array_ptr(arr);
+	int *r = new int[arrSize];
+	int *c = r;
+	int *endC = c + arrSize;
+	while (c < endC)
+	{
+		value v = *arrPtr;
+		val_check_type_or_fail(v, int);
+		*c = val_int(v);
+		c++;
+		arrPtr++;
+	}
+	return r;
+}
+
+Scalar valueToScalar(value arr)
+{
+	int arrSize = val_array_size(arr);
+	value *arrPtr = val_array_ptr(arr);
+	switch (arrSize)
+	{
+		case 1: return Scalar(val_number(arrPtr[0]));
+		case 2: return Scalar(val_number(arrPtr[0]), val_number(arrPtr[1]));
+		case 3: return Scalar(val_number(arrPtr[0]), val_number(arrPtr[1]), val_number(arrPtr[2]));
+		case 4: return Scalar(val_number(arrPtr[0]), val_number(arrPtr[1]), val_number(arrPtr[2]), val_number(arrPtr[3]));
+	}
+	failure("Array for scalar must contain from 1 to 4 items.");
+    return Scalar();
+}
