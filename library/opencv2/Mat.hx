@@ -16,11 +16,19 @@ class Mat
 		this.h = h;
 	}
 	
-	public static function create() : Mat
+	/**
+	 * @param	dimensions		Array of dimensions.
+	 * @param	bitsPerItem		Bits per channel (8, 16, 32 or 64).
+	 * @param	itemTypePrefix	"S", "U" of "F".
+	 * @param	channelNumber	Count of the channels (1-4).
+	 * @param	itemInitValue	Value to init. Ommit if initialization don't needed.
+	 * @return
+	 */
+	public static function create(?dimensions:Array<Int>, ?bitsPerItem:Int, ?itemTypePrefix:String, ?channelNumber:Int, ?itemInitValue:Array<Float>) : Mat
 	{
-		return new Mat(neko_Mat_create());
+		return new Mat(neko_Mat_create(Lib.haxeToNeko(dimensions), bitsPerItem, Lib.haxeToNeko(itemTypePrefix), channelNumber, Lib.haxeToNeko(itemInitValue)));
 	}
-	private static var neko_Mat_create = Lib.loadLazy("hxOpenCV", "neko_Mat_create", 0);
+	private static var neko_Mat_create = Lib.loadLazy("hxOpenCV", "neko_Mat_create", 5);
 	
 	public function clone() : Mat
 	{

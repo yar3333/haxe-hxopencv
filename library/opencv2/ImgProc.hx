@@ -63,9 +63,9 @@ class ImgProc
 	}
 	private static var neko_invert = Lib.loadLazy("hxOpenCV", "neko_invert", 2);
 	
-	public static function filter2D(src:Mat, dst:Mat, ddepth:Int, kernel:Mat, anchorX=-1, anchorY=-1, delta=0.0, borderType=BORDER_DEFAULT) : Void
+	public static function filter2D(src:Mat, dst:Mat, ddepth=-1, kernel:Mat, anchorX=-1, anchorY=-1, delta=0.0, borderType=BORDER_DEFAULT) : Void
 	{
-		neko_filter2D(src.h, dst.h);
+		neko_filter2D(src.h, dst.h, ddepth, kernel, anchorX, anchorY, delta, borderType);
 	}
 	private static var neko_filter2D = Lib.loadLazy("hxOpenCV", "neko_filter2D", -1);
 }

@@ -31,3 +31,5 @@ IplImage *valueToIplImage(value image);
 value matToValue(Mat mat);
 Mat &valueToMat(value mat);
 value pointToValue(Point p);
+int *newValueToArrayInt(value arr);
+Scalar valueToScalar(value arr);
