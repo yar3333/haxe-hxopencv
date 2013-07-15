@@ -100,3 +100,53 @@ value neko_Mat_cols(value mat)
 	return alloc_int(valueToMat(mat).cols);
 }
 DEFINE_PRIM(neko_Mat_cols, 1);
+
+//---------------------------------------------------
+
+value neko_Mat_initByArray(value mat, value arr)
+{
+	val_check_kind_or_fail(mat, k_Mat);
+	
+	Mat &img = valueToMat(mat);
+    int channels = img.channels();
+    int elemSize1 = img.elemSize1();
+    
+    value *arrPtr = val_array_ptr(arr);
+    
+	for(int row = 0; row < img.rows && row < val_array_size(arr); row++, arrPtr++)
+	{
+		uchar *p = img.ptr(row);
+        value arrRow = *arrPtr;
+        val_check_type_or_fail(arrRow, array);
+        value *arrRowPtr = val_array_ptr(arrRow);
+        for(int col = 0; col < img.cols && col < val_array_size(arrRow); col++, arrRowPtr++)
+		{
+            if (elemSize1 == 1)
+            {
+                switch (channels)
+                {
+                    case 1:
+                        val_check_type_or_fail(*arrRowPtr, int);
+                        *p = val_int(*arrRowPtr);
+                        p += elemSize1;
+                        break;
+                }
+            }
+            else
+            if (elemSize1 == 4)
+            {
+                switch (channels)
+                {
+                    case 1:
+                        val_check_type_or_fail(*arrRowPtr, number);
+                        *((float *)p) = (float)val_number(*arrRowPtr);
+                        p += elemSize1;
+                        break;
+                }
+            }
+		}
+    }
+    
+    return val_null;
+}
+DEFINE_PRIM(neko_Mat_initByArray, 2);

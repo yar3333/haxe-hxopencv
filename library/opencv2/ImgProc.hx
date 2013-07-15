@@ -65,8 +65,20 @@ class ImgProc
 	
 	public static function filter2D(src:Mat, dst:Mat, ddepth=-1, kernel:Mat, anchorX=-1, anchorY=-1, delta=0.0, borderType=BORDER_DEFAULT) : Void
 	{
-		neko_filter2D(src.h, dst.h, ddepth, kernel, anchorX, anchorY, delta, borderType);
+		neko_filter2D(src.h, dst.h, ddepth, kernel.h, anchorX, anchorY, delta, borderType);
 	}
 	private static var neko_filter2D = Lib.loadLazy("hxOpenCV", "neko_filter2D", -1);
+	
+	public static function erode(src:Mat, dst:Mat, kernel:Mat, anchorX=-1, anchorY=-1, iterations=1, borderType=BORDER_CONSTANT, ?borderType:Array<Float>) : Void
+	{
+		neko_erode(src.h, dst.h, kernel.h, anchorX, anchorY, iterations, borderType, Lib.haxeToNeko(borderType));
+	}
+	private static var neko_erode = Lib.loadLazy("hxOpenCV", "neko_erode", -1);
+	
+	public static function dilate(src:Mat, dst:Mat, kernel:Mat, anchorX=-1, anchorY=-1, iterations=1, borderType=BORDER_CONSTANT, ?borderType:Array<Float>) : Void
+	{
+		neko_dilate(src.h, dst.h, kernel.h, anchorX, anchorY, iterations, borderType, Lib.haxeToNeko(borderType));
+	}
+	private static var neko_dilate = Lib.loadLazy("hxOpenCV", "neko_dilate", -1);
 }
 

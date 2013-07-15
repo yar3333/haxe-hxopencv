@@ -53,4 +53,11 @@ class Mat
 		return neko_Mat_cols(h);
 	}
 	private static var neko_Mat_cols = Lib.loadLazy("hxOpenCV", "neko_Mat_cols", 1);
+	
+	public function initByArray(arr:Array<Array<Dynamic>>) : Void
+	{
+		return neko_Mat_initByArray(h, Lib.haxeToNeko(arr));
+	}
+	private static var neko_Mat_initByArray = Lib.loadLazy("hxOpenCV", "neko_Mat_initByArray", 2);
+	
 }
