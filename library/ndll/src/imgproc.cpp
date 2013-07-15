@@ -103,3 +103,63 @@ value neko_filter2D(value args[], int argc)
 DEFINE_PRIM_MULT(neko_filter2D);
 
 //---------------------------------------------------
+
+value neko_erode(value args[], int argc)
+{
+	if (argc != 8) failure("erode: expected 8 arguments.");
+	
+	value src = args[0];
+	value dst = args[1];
+	value kernel = args[2];
+	value anchorX = args[3];
+	value anchorY = args[4];
+	value iterations = args[5];
+	value borderType = args[6];
+	value borderValue = args[7];
+	
+	val_check_kind_or_fail(src, k_Mat);
+	val_check_kind_or_fail(dst, k_Mat);
+	val_check_kind_or_fail(kernel, k_Mat);
+	val_check_type_or_fail(anchorX, int);
+	val_check_type_or_fail(anchorY, int);
+	val_check_type_or_fail(iterations, int);
+	val_check_type_or_fail(borderType, int);
+	if (!val_is_null(borderValue)) val_check_type_or_fail(borderValue, array);
+	
+	erode(valueToMat(src), valueToMat(dst), valueToMat(kernel), Point(val_int(anchorX), val_int(anchorY)), val_int(iterations), val_int(borderType), !val_is_null(borderValue) ? valueToScalar(borderValue) : Scalar::all(DBL_MAX));
+	
+	return val_null;
+}
+DEFINE_PRIM_MULT(neko_erode);
+
+//---------------------------------------------------
+
+value neko_dilate(value args[], int argc)
+{
+	if (argc != 8) failure("dilate: expected 8 arguments.");
+	
+	value src = args[0];
+	value dst = args[1];
+	value kernel = args[2];
+	value anchorX = args[3];
+	value anchorY = args[4];
+	value iterations = args[5];
+	value borderType = args[6];
+	value borderValue = args[7];
+	
+	val_check_kind_or_fail(src, k_Mat);
+	val_check_kind_or_fail(dst, k_Mat);
+	val_check_kind_or_fail(kernel, k_Mat);
+	val_check_type_or_fail(anchorX, int);
+	val_check_type_or_fail(anchorY, int);
+	val_check_type_or_fail(iterations, int);
+	val_check_type_or_fail(borderType, int);
+	if (!val_is_null(borderValue)) val_check_type_or_fail(borderValue, array);
+	
+	dilate(valueToMat(src), valueToMat(dst), valueToMat(kernel), Point(val_int(anchorX), val_int(anchorY)), val_int(iterations), val_int(borderType), !val_is_null(borderValue) ? valueToScalar(borderValue) : Scalar::all(DBL_MAX));
+	
+	return val_null;
+}
+DEFINE_PRIM_MULT(neko_dilate);
+
+//---------------------------------------------------
