@@ -5,6 +5,7 @@ import opencv2.Core;
 import opencv2.HighGui;
 import opencv2.ImgProc;
 import opencv2.Mat;
+import opencv2.AnnMlp;
 
 class TestsA extends haxe.unit.TestCase
 {
