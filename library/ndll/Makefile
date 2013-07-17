@@ -1,6 +1,6 @@
 SRC_DIR = src
 OBJ_DIR = obj
-OBJS=$(OBJ_DIR)/abstract.o $(OBJ_DIR)/mat.o $(OBJ_DIR)/core.o $(OBJ_DIR)/imgproc.o $(OBJ_DIR)/highgui.o $(OBJ_DIR)/test.o
+OBJS=$(OBJ_DIR)/abstract.o $(OBJ_DIR)/mat.o $(OBJ_DIR)/core.o $(OBJ_DIR)/imgproc.o $(OBJ_DIR)/highgui.o $(OBJ_DIR)/ann_mlp.o $(OBJ_DIR)/test.o
 
 ifdef WINDOWS
 

@@ -2,13 +2,6 @@
 
 ////////////////////////////////////////////////////////////////////
 
-// template<typename _Tp> class Scalar_ : public Vec<_Tp, 4> { ... };
-// typedef Scalar_<double> Scalar;
-
-
-// CV_[The number of bits per item][Signed or Unsigned][Type Prefix]C[The channel number]
-// Mat L(3,sz, CV_8UC(1), Scalar::all(0));
-// Mat M(2,2, CV_8UC3, Scalar(0,0,255));	
 value neko_Mat_create(value dimensions, value bitsPerItem, value itemTypePrefix, value channelNumber, value itemInitValue)
 {
 	if (!val_is_null(dimensions))
@@ -43,11 +36,11 @@ value neko_Mat_create(value dimensions, value bitsPerItem, value itemTypePrefix,
 		if (!val_is_null(itemInitValue))
 		{
 			val_check_type_or_fail(itemInitValue, array);
-			r = matToValue(*(new Mat(val_array_size(dimensions), newDimensions, itemType, valueToScalar(itemInitValue))));
+			r = matToValue(Mat(val_array_size(dimensions), newDimensions, itemType, valueToScalar(itemInitValue)));
 		}
 		else
 		{
-			r = matToValue(*(new Mat(val_array_size(dimensions), newDimensions, itemType)));
+			r = matToValue(Mat(val_array_size(dimensions), newDimensions, itemType));
 		}
 		delete [] newDimensions;
 		return r;

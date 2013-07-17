@@ -4,6 +4,7 @@
     <df root="src" name="src">
       <in>abstract.cpp</in>
       <in>abstract.hpp</in>
+      <in>ann_mlp.cpp</in>
       <in>core.cpp</in>
       <in>highgui.cpp</in>
       <in>imgproc.cpp</in>
