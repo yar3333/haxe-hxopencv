@@ -9,7 +9,7 @@ ifdef WINDOWS
 	INCLUDE_OPENCV=d:/MyProg/_assets/opencv/build/include 
 	LIBRARY_OPENCV=d:/MyProg/_assets/opencv/build/x86/vc10/lib
 	
-	OUT=../ndll/Windows/hxOpenCV.ndll
+	OUT=../library/ndll/Windows/hxOpenCV.ndll
 	
 	CCFLAGS=-I$(INCLUDE_OPENCV) -I$(INCLUDE_NEKO) -nologo -W3 -WX- -Od -Oy- -D "WIN32" -D "_WINDOWS" -D "_USRDLL" -D "_WINDLL" -D "_MBCS" -Gm- -EHsc -RTC1 -GS -Zc:wchar_t -Zc:forScope -Gd -MTd
 	
@@ -30,7 +30,7 @@ else
 	INCLUDE_OPENCV=
 	LIBRARY_OPENCV=
 	
-	OUT=../ndll/Linux/hxOpenCV.ndll
+	OUT=../library/ndll/Linux/hxOpenCV.ndll
 	
 	CCFLAGS=-shared -O2 -s -Wall -I$(INCLUDE_NEKO) -I$(INCLUDE_OPENCV)
 	

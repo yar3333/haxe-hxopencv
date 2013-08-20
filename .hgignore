@@ -3,4 +3,4 @@ test/bin
 library.zip
 library/ndll/Windows/hxOpenCV.lib
 library/ndll/Windows/hxOpenCV.exp
-library/ndll/obj
+build/obj
