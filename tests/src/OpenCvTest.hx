@@ -7,7 +7,7 @@ import opencv2.ImgProc;
 import opencv2.Mat;
 import opencv2.AnnMlp;
 
-class TestsA extends haxe.unit.TestCase
+class OpenCvTest extends haxe.unit.TestCase
 {
     public function testBasic()
     {
