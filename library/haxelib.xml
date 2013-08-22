@@ -1,9 +1,0 @@
-<project name="hxOpenCV" url="https://code.google.com/p/hxopencv/" license="LGPL">
-	<user name="yar3333" />
-	<tag v="neko" />
-	<tag v="opencv" />
-    <description>
-        Haxe neko binding for the OpenCV library.
-    </description>
-    <version name="0.1">Init version.</version>
-</project>
