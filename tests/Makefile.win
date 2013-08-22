@@ -1,0 +1,5 @@
+neko:
+	xcopy images bin /E /Y
+	haxe -cp ../library -cp src -main Main -neko bin/index.n
+	SET NEKOPATH=%NEKOPATH%;..\..\library\ndll\Windows
+	run.cmd neko index.n

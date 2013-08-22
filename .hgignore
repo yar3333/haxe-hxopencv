@@ -1,6 +1,6 @@
 syntax: glob
-test/bin
-library.zip
+library/library.zip
+bin
+build/obj
 library/ndll/Windows/hxOpenCV.lib
 library/ndll/Windows/hxOpenCV.exp
-build/obj
