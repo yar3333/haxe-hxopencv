@@ -1,5 +1,2 @@
-export NEKOPATH:=/usr/lib/neko:../library/ndll/Linux
-
-all:
-	haxe -cp ../library -cp src -main Main -neko bin/index.n
-	cd bin && neko index.n
+include Makefile.platform
+include Makefile.test

@@ -8,5 +8,5 @@ class Core
 	{
 		return neko_minMaxLoc(mat.h, mask != null ? mask.h : null);
 	}
-	private static var neko_minMaxLoc = Lib.loadLazy("hxOpenCV", "neko_minMaxLoc", 2);
+	private static var neko_minMaxLoc = Lib.loadLazy("opencv", "neko_minMaxLoc", 2);
 }
