@@ -1,5 +1,5 @@
 {
-  "name": "hxOpenCV",
+  "name": "opencv",
   "license": "LGPL",
   "tags": ["neko","opencv"],
   "description": "OpenCV library bindings for neko.",

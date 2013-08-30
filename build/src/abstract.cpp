@@ -35,7 +35,7 @@ IplImage *valueToIplImage(value image)
 	return (IplImage *)val_data(image);
 }
 
-value matToValue(Mat &mat)
+value matToValue(const Mat &mat)
 {
 	value r = alloc_abstract(k_Mat, new Mat(mat));
 	val_gc(r, deleteMat);

@@ -1,33 +1,11 @@
-ifeq ($(shell getconf LONG_BIT),64)
-	X64=1
+include Makefile.platform
+include Makefile.ndll
+
+PROJECT=opencv
+
+ifeq ($(PLATFORM),Windows)
+	CCFLAGS+= -Id:/MyProg/_assets/opencv/build/include
+	LDFLAGS+= -Ld:/MyProg/_assets/opencv/build/x86/mingw/bin
+	LDFLAGS+= -l opencv_core245 -l opencv_imgproc245 -l opencv_highgui245 -l opencv_ml245 -l opencv_video245 -l opencv_features2d245 
+	LDFLAGS+= -l opencv_calib3d245 -l opencv_objdetect245 -l opencv_contrib245 -l opencv_legacy245 -l opencv_flann245
 endif
-
-INCLUDE_OPENCV=
-LIBRARY_OPENCV=
-
-OUT=../library/ndll/Linux/hxOpenCV.ndll
-
-SRC_DIR = src
-OBJ_DIR = obj
-
-OBJS=$(OBJ_DIR)/abstract.o $(OBJ_DIR)/mat.o $(OBJ_DIR)/core.o $(OBJ_DIR)/imgproc.o $(OBJ_DIR)/highgui.o $(OBJ_DIR)/ann_mlp.o $(OBJ_DIR)/test.o
-
-CFLAGS=-shared -O2 -s -Wall -I$(INCLUDE_NEKO) -I$(INCLUDE_OPENCV)
-
-LDFLAGS=-shared -L$(LIBRARY_OPENCV) -lneko
-LDFLAGS+=-lopencv_core245 -lopencv_imgproc245 -lopencv_highgui245 -lopencv_ml245 -lopencv_video245 -lopencv_features2d245
-LDFLAGS+=-lopencv_calib3d245 -lopencv_objdetect245 -lopencv_contrib245 -lopencv_legacy245 -lopencv_flann245
-
-CC=g++
-
-build: $(OBJS)
-	$(CC) $(OBJS) -o $(OUT) $(LDFLAGS)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-clean:
-	rm -f $(OUT)
-	rm -f $(OBJS)
-
-all: clean build

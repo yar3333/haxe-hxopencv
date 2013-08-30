@@ -25,11 +25,11 @@ class HighGui
 	{
 		return new Mat(neko_imread(Lib.haxeToNeko(fileName), loadImageColor));
 	}
-	private static var neko_imread = Lib.load("hxOpenCV", "neko_imread", 2);
+	private static var neko_imread = Lib.load("opencv", "neko_imread", 2);
 	
 	public static function imwrite(fileName:String, img:Mat, params:Array<Int>) : Bool
 	{
 		return neko_imwrite(Lib.haxeToNeko(fileName), img.h, Lib.haxeToNeko(params));
 	}
-	private static var neko_imwrite = Lib.load("hxOpenCV", "neko_imwrite", 3);
+	private static var neko_imwrite = Lib.load("opencv", "neko_imwrite", 3);
 }

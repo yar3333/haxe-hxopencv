@@ -9,5 +9,5 @@ class Test
 		neko_test();
 	}
 	
-	private static var neko_test = Lib.loadLazy("hxOpenCV","neko_test", 0);
+	private static var neko_test = Lib.loadLazy("opencv","neko_test", 0);
 }

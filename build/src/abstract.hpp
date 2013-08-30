@@ -33,7 +33,7 @@ void deleteAnnMlp(value obj);
 value iplImageToValue(IplImage *image);
 IplImage *valueToIplImage(value image);
 
-value matToValue(Mat &mat);
+value matToValue(const Mat &mat);
 Mat &valueToMat(value mat);
 
 value pointToValue(Point p);
